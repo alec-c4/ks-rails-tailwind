@@ -1,0 +1,20 @@
+{
+  "ruby.useLanguageServer": true,
+  "ruby.useBundler": true,
+  "ruby.intellisense": "rubyLocate",
+  "ruby.format": "rufo",
+  "files.associations": {
+    "*.erb": "erb",
+    "*.html.erb": "erb",
+    "*.yml": "yaml"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "workbench.startupEditor": "none",
+  "git.autofetch": true,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false
+}

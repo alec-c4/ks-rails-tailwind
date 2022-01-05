@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    "rebornix.ruby",
+    "bung87.rails",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "mikestead.dotenv",
+    "eamodio.gitlens",
+    "oderwat.indent-rainbow",
+    "shd101wyy.markdown-preview-enhanced",
+    "csstools.postcss",
+    "mechatroner.rainbow-csv",
+    "standard.vscode-standard",
+    "sianglim.slim",
+    "svelte.svelte-vscode",
+    "jock.svg",
+    "bradlc.vscode-tailwindcss",
+    "redhat.vscode-yaml",
+    "ms-azuretools.vscode-docker",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "rlnt.keep-a-changelog",
+    "gamunu.vscode-yarn",
+    "esbenp.prettier-vscode"
+  ]
+}
