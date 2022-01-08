@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media(prefers-color-scheme: light) {
+  body {
+    @apply text-black bg-white;
+  }
+}
+
+@media(prefers-color-scheme: dark) {
+  body {
+    @apply text-white bg-black;
+  }
+
+  input, select {
+    @apply text-black;
+  }
+}
+
+* {
+  @apply leading-normal;
+}
+
+h1 {
+  @apply my-3 text-4xl font-bold;
+}
+
+h2 {
+  @apply my-4 text-3xl font-semibold;
+}
+
+h3 {
+  @apply my-5 text-2xl font-semibold;
+}
+
+h4 {
+  @apply my-6 text-xl font-semibold;
+}
+
+h5 {
+  @apply my-8 text-lg font-medium;
+}
+
+h6 {
+  @apply my-10 text-base font-medium;
+}
+
+p {
+  @apply my-3 font-medium;
+}
+
+blockquote {
+  @apply my-4 px-8 border-l-4 border-gray-200;
+}
+
+hr {
+  @apply my-6 border-t;
+}
+
+dl, ol, ul {
+  @apply my-4 pl-3 list-inside;
+}
+
+dl dt {
+  @apply font-semibold;
+}
+
+dl dd {
+  @apply ml-6;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ul {
+  @apply list-disc;
+}
+
+footer ul, nav ul {
+  @apply list-none;
+}
+
+a.active, a:hover {
+  @apply underline;
+}
+
+a.active {
+  @apply font-bold;
+}
+
+table {
+  @apply table-auto align-middle text-left rounded;
+}
+
+table caption {
+  @apply p-3;
+}
+
+table thead {
+  @apply bg-gray-800 text-white;
+}
+
+table thead tr th {
+  @apply py-2 px-4;
+}
+
+table tbody tr td {
+  @apply py-2 px-4;
+}
+
+table tfoot tr th {
+  @apply py-2 px-4;
+}
+
+input, select {
+  @apply block px-3 py-2 border rounded text-sm;
+}
+
+input:focus, textarea:focus {
+  @apply outline-none;
+}
+
+label {
+  @apply block mb-2 text-sm font-semibold;
+}
+
+input[type="submit"], input[type="button"], input[type="reset"] {
+  @apply inline-block px-4 py-2 bg-blue-600 text-white font-semibold;
+}
+
+figure {
+  @apply inline-block;
+}
+
+img {
+  @apply block;
+}
+
+figcaption {
+  @apply block p-3 text-center text-sm;
+}
+
+.pagy-nav {
+  @apply flex justify-center mt-4 gap-3;
+}
+
+span.hint {
+  @apply text-xs ml-3 block;
+}
+
+div.input {
+  @apply my-3;
+}
+
+.date {
+  @apply flex gap-3 px-5 items-center;
+}

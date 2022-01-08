@@ -1,0 +1,15 @@
+<ul class="flex justify-start gap-4 m-auto text-center">
+  <li>
+    (c) <%= Date.today.year %>
+  </li>
+
+  <li>
+    <%= link_to t(:"navigation.privacy_page"), privacy_path %>
+  </li>
+
+  <li>
+    <%= link_to t(:"navigation.terms_page"), terms_path %>
+  </li>
+</ul>
+
+<%= render "layouts/locale_switch" %>

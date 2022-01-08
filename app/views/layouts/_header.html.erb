@@ -1,0 +1,34 @@
+<nav>
+  <ul class="flex justify-start gap-4 m-auto text-center">
+    <% if signed_in? %>
+      <% if current_user.is_admin? %>
+        <li>
+          <%= active_link_to "Admin console", admin_dashboard_path %>
+        </li>
+      <% end %>
+      <li>
+        <%= active_link_to t('navigation.profile'), edit_profile_path %>
+      </li>
+      <li>
+        <%= active_link_to t('navigation.account'), edit_user_registration_path %>
+      </li>
+      <% if current_user != true_user %>
+        <li><%= link_to "Back to admin", stop_impersonating_admin_users_path, data: { turbo_method: :post } %></li>
+      <% else %>
+        <li><%= link_to t('navigation.sign_out'), destroy_user_session_path, data: { turbo_method: :delete } %></li>
+      <% end %>
+    <% else %>
+      <li>
+        <%= link_to t('navigation.sign_up'), new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to t('navigation.sign_in'), new_user_session_path %>
+      </li>
+    <% end %>
+    <% if Rails.env.development? %>
+      <li>
+        <%= link_to "Letter Opener console", letter_opener_web_path, target: "_blank", rel: "nofollow" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

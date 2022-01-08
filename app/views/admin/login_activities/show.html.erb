@@ -1,0 +1,88 @@
+<h1>Login attempt details</h1>
+
+<table>
+  <tr>
+    <td>Date and time</td>
+    <td><%= l(@login_activity.created_at, format: :long) %></td>
+  </tr>
+
+  <tr>
+    <td>Scope</td>
+    <td><%= @login_activity.scope %></td>
+  </tr>
+
+  <tr>
+    <td>Strategy</td>
+    <td><%= @login_activity.strategy %></td>
+  </tr>
+
+  <tr>
+    <td>Identity</td>
+    <td><%= @login_activity.identity %></td>
+  </tr>
+
+  <tr>
+    <td>Success</td>
+    <td><%= @login_activity.success %></td>
+  </tr>
+
+  <tr>
+    <td>Failure reason (if any)</td>
+    <td><%= @login_activity.failure_reason %></td>
+  </tr>
+
+  <tr>
+    <td>User type</td>
+    <td><%= @login_activity.user_type %></td>
+  </tr>
+
+  <tr>
+    <td>User id</td>
+    <td><%= @login_activity.user_id %></td>
+  </tr>
+
+  <tr>
+    <td>Context</td>
+    <td><%= @login_activity.context %></td>
+  </tr>
+
+  <tr>
+    <td>IP</td>
+    <td><%= @login_activity.ip %></td>
+  </tr>
+
+  <tr>
+    <td>User agent</td>
+    <td><%= @login_activity.user_agent %></td>
+  </tr>
+
+  <tr>
+    <td>Referrer</td>
+    <td><%= @login_activity.referrer %></td>
+  </tr>
+
+  <tr>
+    <td>City</td>
+    <td><%= @login_activity.city %></td>
+  </tr>
+
+  <tr>
+    <td>Region</td>
+    <td><%= @login_activity.region %></td>
+  </tr>
+
+  <tr>
+    <td>Country</td>
+    <td><%= @login_activity.country %></td>
+  </tr>
+
+  <tr>
+    <td>Latitude</td>
+    <td><%= @login_activity.latitude %></td>
+  </tr>
+
+  <tr>
+    <td>Longitude</td>
+    <td><%= @login_activity.longitude %></td>
+  </tr>
+</table>

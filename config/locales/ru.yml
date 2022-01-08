@@ -1,0 +1,36 @@
+---
+ru:
+  activerecord:
+    errors:
+      messages:
+        wrong_name_format: должно быть в формате Имя Фамилия
+  application:
+    access_denied: Доступ запрещён!
+    available_locales_label: Доступные языки
+  navigation:
+    account: Аккаунт
+    privacy_page: Политика конфиденциальности
+    profile: Профиль
+    sign_in: Вход
+    sign_out: Выход
+    sign_up: Регистрация
+    terms_page: Правила пользования сервисом
+  pages:
+    privacy:
+      title: Политика конфиденциальности
+    terms:
+      title: Правила
+  users:
+    profile:
+      avatar: Фото
+      birthday: Дата рождения
+      gender: Пол
+      genders:
+        female: Женский
+        male: Мужской
+        not_specified: Не указан
+        other: Иной
+    profiles:
+      update:
+        action_failed: Ошибка обновления профиля
+        action_successful: Профиль обновлён

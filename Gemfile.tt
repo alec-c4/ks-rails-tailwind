@@ -1,0 +1,124 @@
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "<%= RUBY_VERSION %>"
+
+### Application
+gem "rails", "~> <%= Rails.version %>"
+gem "puma"<%= gemfile_requirement("puma") %>
+
+### DB
+gem "pg"<%= gemfile_requirement("pg") %>
+gem "pg_search"
+gem "activerecord-postgres_enum"
+gem "redis", "~> 4.0"
+gem "discard"
+
+### Frontend
+gem "active_link_to"
+gem "better_html"
+gem "cssbundling-rails"
+gem "jsbundling-rails"
+gem "sprockets-rails"
+gem "stimulus-rails"
+gem "turbo-rails"
+gem "jbuilder"<%= gemfile_requirement("jbuilder") %>
+gem "view_component"
+
+### View helpers
+gem "simple_form"
+gem "local_time"
+
+### Authentication and Authorization
+gem "devise"
+gem "devise-pwned_password"
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"
+gem "omniauth-google-oauth2", "~> 1.0"
+gem "rolify"
+gem "pretender"
+gem "pundit"
+
+### SEO
+gem "meta-tags"
+gem "sitemap_generator"
+gem "friendly_id"
+
+### Analytics
+gem "ahoy_email"
+gem "ahoy_matey"
+gem "blazer"
+
+### Encryption and Security
+gem "authtrail"
+gem "rack-attack"
+
+### Communications
+gem "mailkick"
+gem "noticed"
+gem "postmark"
+gem "postmark-rails"
+
+### I18n
+gem "devise-i18n"
+gem "i18n-tasks"
+gem "rails-i18n"
+
+### Caching
+gem "identity_cache"
+gem "cityhash"
+gem "dalli"
+
+### Geolocation
+gem "geocoder"
+
+### Background Processing
+gem "sidekiq"
+gem "sidekiq-scheduler"
+
+### File management
+gem "active_storage_validations"
+gem "aws-sdk-s3", require: false
+gem "image_processing"<%= gemfile_requirement("image_processing") %>
+
+### Monitoring
+gem "appsignal"
+
+### Tools
+gem "bootsnap", require: false
+gem "config"
+gem "lefthook"
+gem "logstop"
+gem "rails_semantic_logger"
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+gem "pagy"
+
+group :development, :test do
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "standard"
+
+  gem "bullet"
+  gem "capybara"
+  gem "capybara-screenshot"
+  gem "database_cleaner"
+  gem "database_cleaner-active_record"
+  gem "email_spec"
+  gem "factory_bot_rails"
+  gem "ffaker"
+  gem "rails-controller-testing"
+  gem "rspec-rails"
+  gem "shoulda-matchers"
+  gem "simplecov"
+end
+
+group :development do
+  gem "annotate"
+  gem "amazing_print"
+  gem "brakeman", require: false
+  gem "bundler-audit"
+  gem "erb_lint", require: false
+  gem "letter_opener_web", "~> 2.0"
+
+  gem "web-console"
+  gem "rack-mini-profiler"
+end

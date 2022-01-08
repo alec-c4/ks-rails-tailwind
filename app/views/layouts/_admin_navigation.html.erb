@@ -1,0 +1,18 @@
+<nav>
+  <ul class="flex justify-start gap-4">
+    <li>
+      <%= active_link_to "Users management", admin_users_path %>
+    </li>
+  </ul>
+</nav>
+
+<nav>
+  <ul class="flex justify-start gap-4">
+    <li>
+      <%= link_to "Sidekiq", sidekiq_web_path %>
+    </li>
+    <li>
+      <%= link_to "Blazer", "/blazer" %>
+    </li>
+  </ul>
+</nav>

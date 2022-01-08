@@ -20,6 +20,7 @@
     "ms-kubernetes-tools.vscode-kubernetes-tools",
     "rlnt.keep-a-changelog",
     "gamunu.vscode-yarn",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "xadillax.viml"
   ]
 }

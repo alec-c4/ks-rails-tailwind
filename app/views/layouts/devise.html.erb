@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="<%= I18n.locale.to_s %>">
+  <head>
+    <title>APPLICATION</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body data-turbo="false">
+    <header></header>
+    <main class="flex h-screen">
+      <div class="m-auto text-center">
+        <%= render "layouts/flash" %>
+        <%= yield %>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<%= simple_form_for @user, url: profile_path, method: :put, local: true, html: { id: "profile_form" } do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :time_zone %>
+    <%= f.input :gender, collection: [
+      [t('users.profile.genders.male'),:male],
+      [t('users.profile.genders.female'),:female],
+      [t('users.profile.genders.other'),:other],
+      [t('users.profile.genders.not_specified'), :not_specified],
+    ], label_method: :first, value_method: :second, label: t('users.profile.gender'), include_blank: false %>
+
+    <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
+                end_year: Date.today.year - 12,
+                order: [:day, :month, :year], label: t('users.profile.birthday') %>
+    <%= f.input :avatar, label: t('users.profile.avatar') %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update profile", class: "btn btn-primary" %>
+  </div>
+<% end %>

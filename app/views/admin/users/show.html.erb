@@ -1,0 +1,158 @@
+<div class="flex flex-auto gap-3 justify-start">
+  <div>
+    <%= render (Elements::AvatarComponent.new(user: @user, preset: :medium)) %>
+
+
+    <div class="mt-5">
+      <h5><%= @user.name %></h5>
+      <p><%= @user.email %></p>
+      <p>Sex: <%= @user.gender %></p>
+      <p>Birthday: <%= @user.birthday %></p>
+      <p>Timezone: <%= @user.time_zone %></p>
+    </div>
+
+    <% unless @user == current_user %>
+      <div class="mt-5">
+        <%= link_to "Edit", edit_admin_user_path(@user) %>
+        <%= link_to "Delete", [:admin, @user], data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="grow">
+    <h3>User info</h3>
+    <table>
+      <tr>
+        <td>Confirmed at</td>
+        <td><%= @user.confirmed_at %></td>
+      </tr>
+      <tr>
+        <td>Confirmation sent at</td>
+        <td><%= @user.confirmation_sent_at %></td>
+      </tr>
+      <tr>
+        <td>Unconfirmed email</td>
+        <td><%= @user.unconfirmed_email %></td>
+      </tr>
+      <tr>
+        <td>Sign in count</td>
+        <td><%= @user.sign_in_count %></td>
+      </tr>
+      <tr>
+        <td>Current signed in at</td>
+        <td><%= @user.current_sign_in_at %></td>
+      </tr>
+      <tr>
+        <td>Current signed in ip address</td>
+        <td><%= @user.current_sign_in_ip %></td>
+      </tr>
+      <tr>
+        <td>Last signed in at</td>
+        <td><%= @user.last_sign_in_at %></td>
+      </tr>
+      <tr>
+        <td>Last signed in ip address</td>
+        <td><%= @user.last_sign_in_ip %></td>
+      </tr>
+      <tr>
+        <td>Failed login attempts</td>
+        <td><%= @user.failed_attempts %></td>
+      </tr>
+      <tr>
+        <td>Locked at</td>
+        <td><%= @user.locked_at %></td>
+      </tr>
+    </table>
+
+    <div class="mt-5 w-full">
+      <h3>Login activities (last 10)</h3>
+      <div class="shadow overflow-hidden rounded border-b border-gray-200">
+        <table>
+          <thead>
+          <tr>
+            <th>Date and time</th>
+            <th>IP</th>
+            <th>User Agent</th>
+            <th>Referrer</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @login_activities.each do |activity| %>
+            <tr>
+              <td><%= link_to l(activity.created_at, format: :long), admin_login_activity_path(activity) %></td>
+              <td><%= activity.ip %></td>
+              <td><%= activity.user_agent %></td>
+              <td><%= activity.referrer %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <%= link_to "More logs", admin_user_login_activities_path(@user) %>
+
+    </div>
+
+    <div class="mt-5 w-full">
+      <h3>Roles</h3>
+
+      <%= form_with(model: nil, url: admin_user_add_role_path(@user), local: true, class: "my-5") do |f| %>
+
+        <%= f.label 'Role name' %>
+        <%= f.select :role_name, Role::ALLOWED_GLOBAL_ROLES, {},
+                     { class: "w-1/4" } %>
+        <%= f.submit 'Add', class: "btn btn-primary mt-3" %>
+      <% end %>
+
+      <div class="shadow overflow-hidden rounded border-b border-gray-200">
+        <table class="w-full">
+          <thead>
+          <tr>
+            <th>Role</th>
+            <th>Resource</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @roles.each do |role| %>
+            <tr>
+              <td><%= role.name.titleize %></td>
+              <td><%= role.resource %></td>
+              <td><%= link_to 'Remove role', admin_user_role_path(@user, role.name), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <% unless @user == current_user %>
+        <h3>Ban</h3>
+
+        <% if @user.banned_at %>
+          <table>
+            <tr>
+              <td>Banned at</td>
+              <td><%= @user.banned_at %></td>
+            </tr>
+            <tr>
+              <td>Ban reason</td>
+              <td><%= @user.ban_reason %></td>
+            </tr>
+          </table>
+
+          <%= link_to "Unban", admin_user_remove_ban_path(@user), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+        <% else %>
+          <%= form_with(url: admin_user_create_ban_path(user_id: @user.id), method: :post, local: true) do |f| %>
+            <%= f.label 'Ban reason' %>
+            <%= f.text_area :ban_reason, placeholder: "Add ban", class: "w-full h-20" %>
+            <%= f.submit class: "btn btn-danger mt-3" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

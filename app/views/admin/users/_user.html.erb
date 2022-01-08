@@ -1,0 +1,16 @@
+<tr id="<%= dom_id(user) %>">
+  <td>
+    <%= link_to [:admin, user] do %>
+      <%= user.name %>
+    <% end %>
+  </td>
+  <td><%= user.email %></td>
+  <td><%= local_time_ago(user.created_at) %></td>
+  <td>
+    <% unless user == current_user %>
+      <%= link_to "Login As", impersonate_admin_user_path(user), data: {turbo_method: :post}, class: "btn btn-secondary" %>
+      <%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-secondary" %>
+      <%= link_to "Delete", [:admin, user], data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+    <% end %>
+  </td>
+</tr>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="<%= I18n.locale.to_s %>">
+  <head>
+    <%= display_meta_tags site: "Cosmoport", og: {
+      title: :title,
+      site_name: :site,
+    } %>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="container mx-auto">
+    <header class="mb-5">
+      <%= render "layouts/header" %>
+    </header>
+    <main>
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </main>
+    <footer class="mt-5">
+      <%= render "layouts/footer" %>
+    </footer>
+  </body>
+</html>

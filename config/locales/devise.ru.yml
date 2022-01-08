@@ -1,0 +1,9 @@
+---
+ru:
+  devise:
+    failure:
+      banned: Banned
+    social:
+      are_you_sure_to_disconnect: Вы уверены, что хотите отключить?
+      connected_accounts: Подключенные аккаунты
+      disconnect: Отключиться от %{service}

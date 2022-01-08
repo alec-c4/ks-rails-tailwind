@@ -1,0 +1,21 @@
+<h1>Manage users</h1>
+
+<%= render 'admin/users/search_form' %>
+
+<div class="shadow overflow-hidden rounded border-b border-gray-200">
+  <table class="w-full">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Registered at</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody id="users">
+    <%= render @users %>
+    </tbody>
+  </table>
+</div>
+
+<%== pagy_nav(@pagy) %>

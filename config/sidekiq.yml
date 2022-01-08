@@ -1,0 +1,7 @@
+:concurrency: 3
+:timeout: 60
+:verbose: true
+:queues:
+  - default
+  - mailers
+  - low_priority

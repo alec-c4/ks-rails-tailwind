@@ -1,0 +1,9 @@
+---
+en:
+  devise:
+    failure:
+      banned: Banned
+    social:
+      are_you_sure_to_disconnect: Are you sure to disconnect?
+      connected_accounts: Connected accounts
+      disconnect: Disconnect %{service}

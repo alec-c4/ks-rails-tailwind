@@ -1,0 +1,23 @@
+<h1>Login activities of <%= @user %></h1>
+<div class="shadow overflow-hidden rounded border-b border-gray-200">
+  <table class="w-full">
+    <thead>
+    <tr>
+      <th>Date and time</th>
+      <th>IP</th>
+      <th>User Agent</th>
+      <th>Referrer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @login_activities.each do |activity| %>
+      <tr>
+        <td><%= link_to l(activity.created_at, format: :long), admin_login_activity_path(activity) %></td>
+        <td><%= activity.ip %></td>
+        <td><%= activity.user_agent %></td>
+        <td><%= activity.referrer %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

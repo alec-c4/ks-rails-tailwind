@@ -1,0 +1,36 @@
+---
+en:
+  activerecord:
+    errors:
+      messages:
+        wrong_name_format: must contain both first and last name
+  application:
+    access_denied: Access denied!
+    available_locales_label: Available locales
+  navigation:
+    account: Account
+    privacy_page: Privacy policy
+    profile: Profile
+    sign_in: Sign in
+    sign_out: Sign out
+    sign_up: Sign up
+    terms_page: Terms of service
+  pages:
+    privacy:
+      title: Privacy policy
+    terms:
+      title: Terms of service
+  users:
+    profile:
+      avatar: Photo
+      birthday: Birthday
+      gender: Gender
+      genders:
+        female: Female
+        male: Male
+        not_specified: Not specified
+        other: Other
+    profiles:
+      update:
+        action_failed: Profile update failed
+        action_successful: Profile update successful

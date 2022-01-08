@@ -1,0 +1,14 @@
+<ul class="flex justify-start gap-4 m-auto text-center">
+  <li>
+    <%= t("application.available_locales_label") %>
+  </li>
+  <% I18n.available_locales.each do |locale| %>
+    <li>
+      <% if cookies[:locale].present? %>
+        <%= link_to locale, url_for(locale: locale), class: "#{'active' if locale.to_s == cookies[:locale]}" %>
+      <% else %>
+        <%= link_to locale, url_for(locale: locale), class: "#{'active' if locale.to_s == I18n.default_locale.to_s}" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
