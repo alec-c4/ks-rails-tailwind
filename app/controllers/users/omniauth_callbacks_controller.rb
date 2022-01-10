@@ -35,17 +35,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def set_user
     @user = if signed_in?
-              current_user
-            elsif identity.present?
-              identity.user
-            else
-              User.find_or_create_by(email: auth.info.email) do |u|
-                u.name = auth.info.name
-                u.password = Devise.friendly_token[0, 20]
-                u.time_zone = browser_time_zone&.name || Time.zone.name
-                u.skip_confirmation!
-              end
-            end
+      current_user
+    elsif identity.present?
+      identity.user
+    else
+      User.find_or_create_by(email: auth.info.email) do |u|
+        u.name = auth.info.name
+        u.password = Devise.friendly_token[0, 20]
+        u.time_zone = browser_time_zone&.name || Time.zone.name
+        u.skip_confirmation!
+      end
+    end
+    CreateAvatarJob.perform_now(@user) unless @user.avatar.present?
   end
 
   def identity_attrs

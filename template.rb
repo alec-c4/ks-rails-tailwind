@@ -230,6 +230,7 @@ def apply_app_changes
   directory "app/controllers", force: true
   directory "app/components", force: true
   directory "app/helpers", force: true
+  directory "app/jobs", force: true
   directory "app/mailers", force: true
   directory "app/models", force: true
   directory "app/views", force: true
@@ -247,6 +248,8 @@ def apply_app_changes
   generate "hypershield:install"
 
   copy_file "config/initializers/devise.rb", force: true
+
+  copy_file "public/robots.txt", force: true
 
   # run linters
   run "i18n-tasks normalize"

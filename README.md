@@ -99,6 +99,7 @@ bin/rails db:encryption:init
 - [hypershield](https://github.com/ankane/hypershield)
 - [identity_cache](https://github.com/Shopify/identity_cache)
 - [active_storage_validations](https://github.com/igorkasyanchuk/active_storage_validations)
+- [avatarly](https://github.com/lucek/avatarly) for default avatar generation
 - landing page
 - custom error pages
 - profiles controller

@@ -85,6 +85,7 @@ gem "image_processing"<%= gemfile_requirement("image_processing") %>
 gem "appsignal"
 
 ### Tools
+gem "avatarly"
 gem "bootsnap", require: false
 gem "config"
 gem "lefthook"

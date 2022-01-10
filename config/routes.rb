@@ -1,18 +1,18 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  ### Registered users
-  scope :users, module: "users" do
-    resource :profiles, only: %i[edit update], as: :profile
-    delete "identities", to: "identities#destroy"
-  end
-
   devise_for :users,
              controllers: {omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations",
                            sessions: "users/sessions"}
 
+  ### Registered users
   authenticated :user do
     root to: "customer/dashboard#index", as: :authenticated_root
+  end
+  
+  scope :users, module: "users" do
+    resource :profiles, only: %i[edit update], as: :profile
+    delete "identities", to: "identities#destroy"
   end
 
   ### Admins

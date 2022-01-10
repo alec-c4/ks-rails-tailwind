@@ -74,6 +74,15 @@ class User < ApplicationRecord
   # scopes
   default_scope { kept.order(created_at: :asc) }
 
+  ### Devise async
+  def send_devise_notification(notification, *args)
+    if Rails.env.production? || Rails.env.staging?
+      devise_mailer.send(notification, self, *args).deliver_later
+    else
+      devise_mailer.send(notification, self, *args).deliver_now
+    end
+  end
+
   ### Ban
   def account_active?
     banned_at.nil?
@@ -95,6 +104,24 @@ class User < ApplicationRecord
 
   def name
     [first_name, last_name].join(" ")
+  end
+
+  alias_method :full_name, :name
+
+  def familiar_name
+    last_name.present? ? "#{first_name} #{last_name.first}." : first_name
+  end
+
+  def abbreviated_name
+    last_name.present? ? "#{first_name.first}. #{last_name}" : first_name
+  end
+
+  def sorted_name
+    last_name.present? ? "#{last_name}, #{first_name.first}" : first_name
+  end
+
+  def initials
+    name.remove(/(\(|\[).*(\)|\])/).scan(/([[:word:]])[[:word:]]*/i).join
   end
 
   def check_name_format
