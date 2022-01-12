@@ -14,7 +14,7 @@
     <header></header>
     <main class="flex h-screen">
       <div class="m-auto text-center">
-        <%= render "layouts/flash" %>
+        <%= render Elements::FlashComponent.new %>
         <%= yield %>
       </div>
     </main>

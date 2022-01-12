@@ -19,7 +19,7 @@
       <%= render "layouts/header" %>
     </header>
     <main>
-      <%= render "layouts/flash" %>
+      <%= render Elements::FlashComponent.new %>
       <%= yield %>
     </main>
     <footer class="mt-5">

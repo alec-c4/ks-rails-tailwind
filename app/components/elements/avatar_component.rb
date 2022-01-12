@@ -6,12 +6,12 @@ class Elements::AvatarComponent < ViewComponent::Base
     @preset = preset
 
     @classes = class_names({
-                             "rounded-lg": geometry == :square,
-                             "rounded-full": geometry != :square,
-                             "h-8 w-8": preset == :thumb,
-                             "h-40 w-40": preset == :medium,
-                             "h-32 w-32": preset == :large
-                           })
+      "rounded-lg": geometry == :square,
+      "rounded-full": geometry != :square,
+      "h-24 w-24": preset == :thumb,
+      "h-48 w-48": preset == :medium,
+      "h-96 w-96": preset == :large
+    })
     case @preset
     when :thumb
       @width = "100px"
@@ -21,5 +21,4 @@ class Elements::AvatarComponent < ViewComponent::Base
       @height = "300px"
     end
   end
-
 end

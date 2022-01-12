@@ -16,7 +16,7 @@
       <%= render "layouts/admin_navigation" %>
     </header>
     <main>
-      <%= render "layouts/flash" %>
+      <%= render Elements::FlashComponent.new %>
       <%= yield %>
     </main>
     <footer class="mt-5">
