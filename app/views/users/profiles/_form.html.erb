@@ -1,4 +1,4 @@
-<%= simple_form_for @user, url: profile_path, method: :put, local: true, html: { id: "profile_form" } do |f| %>
+<%= simple_form_for user, url: profile_path, method: :put, local: true, html: { id: "profile_form" } do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.input :first_name %>

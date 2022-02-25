@@ -68,7 +68,7 @@ bin/rails db:encryption:init
 - [VSCode](https://code.visualstudio.com/) configuration files
 - postgresql database connector
 - timezone detection with [jstz](https://github.com/iansinnott/jstz)
-- [Sidekiq](https://github.com/mperham/sidekiq) for background jobs
+- [Good Job](https://github.com/bensheldon/good_job) for background jobs
 - [strong_migrations](https://github.com/ankane/strong_migrations)
 - authentication with [devise](https://github.com/heartcombo/devise) and [devise-pwned_password](https://github.com/michaelbanfield/devise-pwned_password) + google auth
 - [pretender](https://github.com/ankane/pretender)

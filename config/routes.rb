@@ -1,5 +1,3 @@
-require "sidekiq/web"
-
 Rails.application.routes.draw do
   devise_for :users,
              controllers: {omniauth_callbacks: "users/omniauth_callbacks", registrations: "users/registrations",
@@ -19,7 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/", to: "dashboard#index", as: :dashboard
 
-    resources :users do
+    resources :users, except: [:new, :create] do
       # roles
       delete "/roles/:role_name", to: "roles#destroy", as: :role
       post "/roles/", to: "roles#create", as: :add_role
@@ -37,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, ->(u) { u.is_admin? } do
-    mount Sidekiq::Web, at: "/sidekiq"
+    mount GoodJob::Engine => "good_job"
     mount Blazer::Engine, at: "/blazer"
   end
 

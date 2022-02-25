@@ -1,4 +1,4 @@
 web: bin/rails server -p 3000
-js: yarn build --watch
+js: yarn build:js --watch
 css: yarn build:css --watch
-sidekiq: bundle exec sidekiq --config config/sidekiq.yml
+good_job: bundle exec good_job start

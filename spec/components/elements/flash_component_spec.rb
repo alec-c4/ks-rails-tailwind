@@ -4,7 +4,7 @@ RSpec.describe Elements::FlashComponent, type: :component do
   it "renders flash notification" do
     with_controller_class Customer::DashboardController do
       controller.flash[:notice] = "Notification message!"
-      render_inline described_class.new()
+      render_inline described_class.new
     end
 
     expect(rendered_component).to have_text "Notification message!"

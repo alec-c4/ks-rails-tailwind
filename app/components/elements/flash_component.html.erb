@@ -1,10 +1,8 @@
 <% unless flash.empty? %>
   <% flash.each do |key, value| %>
     <% next unless value.is_a? String %>
-    <div class="<%= flash_class(key) %> mt-2">
-      <label>
-        <%= value %>
-      </label>
+    <div class="<%= @flash_class[key.to_sym] %>">
+      <label><%= value %></label>
     </div>
   <% end %>
 <% end %>

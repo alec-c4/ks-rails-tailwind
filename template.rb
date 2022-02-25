@@ -34,20 +34,35 @@ end
 def apply_app_changes
   # setup generators
   copy_file "config/initializers/generators.rb", force: true
+  copy_file "config/initializers/semantic_logger.rb", force: true
 
   # setup Procfile
   copy_file "Procfile.dev", force: true
 
   # setup frontend with timezone support
   run "yarn add jstz local-time"
-  run "yarn add @tailwindcss/forms tailwindcss-font-inter"
+  run "yarn add tailwindcss @tailwindcss/forms @tailwindcss/typography tailwindcss-font-inter"
+  run "yarn add chokidar standard -D"
   directory "app/javascript", force: true
   copy_file "tailwind.config.js", force: true
+  copy_file "esbuild-dev.config.js", force: true
+  copy_file "postcss.config.js", force: true
   copy_file ".erb-lint.yml", force: true
 
-  # setup_sidekiq
-  copy_file "config/initializers/sidekiq.rb", force: true
-  copy_file "config/sidekiq.yml", force: true
+  gsub_file "package.json", /"build": "esbuild app\/javascript\/\*\.\* --bundle --sourcemap --outdir=app\/assets\/builds",\n/ do
+    <<-'CODE'
+"build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:js": "node esbuild-dev.config.js",
+    CODE
+  end
+
+  # setup good_job
+  generate "good_job:install"
+  inject_into_file "config/application.rb", after: /require "rails\/test_unit\/railtie"\n/ do
+    <<-'RUBY'
+  require "good_job/engine"
+    RUBY
+  end
 
   # setup main configuration
 
@@ -211,7 +226,7 @@ def apply_app_changes
   copy_file "migrations/mailkick.rb", mailkick_migration_file, force: true
 
   # setup noticed
-  generate "noticed:model"
+  generate "migration CreateNotifications"
   noticed_migration_file = (Dir["db/migrate/*_create_notifications.rb"]).first
   copy_file "migrations/noticed.rb", noticed_migration_file, force: true
 
@@ -235,7 +250,7 @@ def apply_app_changes
   directory "app/models", force: true
   directory "app/views", force: true
   directory "app/policies", force: true
-  copy_file "app/assets/stylesheets/application.tailwind.css", force: true
+  directory "app/assets/stylesheets", force: true
   copy_file "config/routes.rb", force: true
   copy_file "config/puma.rb", force: true
 

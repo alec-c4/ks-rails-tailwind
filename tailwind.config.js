@@ -12,7 +12,6 @@ module.exports = {
       importFontFace: true,
       disableUnusedFeatures: true
     }),
-    require('@tailwindcss/typography'),
-    require('daisyui')
+    require('@tailwindcss/typography')
   ]
 }

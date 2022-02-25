@@ -1,7 +1,7 @@
 <h1>Profile</h1>
 
 <div class="flex gap-3">
-  <%= render "users/profiles/avatar", user: current_user %>
+  <%= render partial: "users/profiles/avatar", locals: { user: current_user } %>
 
-  <%= render "users/profiles/form" %>
+  <%= render partial: "users/profiles/form", locals: { user: current_user } %>
 </div>
