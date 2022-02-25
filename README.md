@@ -53,7 +53,7 @@ You can generate active record encryption keys with following command
 bin/rails db:encryption:init
 ```
 
-8. Configure application in  `config/settings.yml` and `config/settings/*.yml`
+8. Configure application in  `config/settings.yml`
 
 9. Configure rack-attack using following [guide](https://expeditedsecurity.com/blog/ultimate-guide-to-rack-attack/)
 

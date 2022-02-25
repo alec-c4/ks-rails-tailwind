@@ -86,7 +86,6 @@ gem "appsignal"
 ### Tools
 gem "avatarly"
 gem "bootsnap", require: false
-gem "config"
 gem "lefthook"
 gem "logstop"
 gem "rails_semantic_logger"

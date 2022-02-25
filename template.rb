@@ -66,8 +66,7 @@ def apply_app_changes
 
   # setup main configuration
 
-  generate "config:install -s"
-  directory "config/settings", force: true
+  copy_file "config/settings.yml", force: true
 
   generate "meta_tags:install"
 
@@ -85,6 +84,9 @@ def apply_app_changes
 
   inject_into_file "config/application.rb", after: /config\.generators\.system_tests = nil\n/ do
     <<-'RUBY'
+  # use config file
+  config.settings = config_for(:settings)
+
      # use custom error pages
      config.exceptions_app = routes
 
@@ -99,9 +101,9 @@ def apply_app_changes
     # Mail
     config.action_mailer.delivery_method = :letter_opener_web
     config.action_mailer.default_url_options = {
-      host: Settings.mailer.default_url.host,
-      port: Settings.mailer.default_url.port,
-      protocol: Settings.mailer.default_url.protocol
+      host: Rails.configuration.settings.mailer_default_url_host,
+      port: Rails.configuration.settings.mailer_default_url_port,
+      protocol: Rails.configuration.settings.mailer_default_url_protocol
     }
     config.action_mailer.perform_deliveries = true
 
@@ -141,9 +143,9 @@ def apply_app_changes
 
     # Mailer
     config.action_mailer.default_url_options = {
-      host: Settings.mailer.default_url.host,
-      port: Settings.mailer.default_url.port,
-      protocol: Settings.mailer.default_url.protocol
+      host: Rails.configuration.settings.mailer_default_url_host,
+      port: Rails.configuration.settings.mailer_default_url_port,
+      protocol: Rails.configuration.settings.mailer_default_url_protocol
     }
     RUBY
   end
@@ -157,8 +159,8 @@ def apply_app_changes
       api_token: Rails.application.credentials.postmark[:api_key]
     }
     config.action_mailer.default_url_options = {
-      host: Settings.mailer.default_url.host,
-      protocol: Settings.mailer.default_url.protocol
+      host: Rails.configuration.settings.mailer_default_url_host,
+      protocol: Rails.configuration.settings.mailer_default_url_protocol
     }
     config.action_mailer.perform_deliveries = true
 
@@ -282,7 +284,7 @@ def show_post_install_message
   Next steps:
   1 - add creadentials as described in README.md
   2 - configure database connections
-  3 - configure application options in config/settings
+  3 - configure application options in config/settings.yml
   4 - run following command \n
   git init && git add . &&  git commit -am 'Initial import' && lefthook install \n
   

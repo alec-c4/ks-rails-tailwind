@@ -1,0 +1,17 @@
+shared:
+  mailer_default_from_email: "info@example.com"
+  mailer_devise_from_email: "info@example.com"
+development:
+  mailer_default_url_host: "localhost"
+  mailer_default_url_protocol: "http"
+  mailer_default_url_port: 3000
+test:
+  mailer_default_url_host: "localhost"
+  mailer_default_url_protocol: "http"
+  mailer_default_url_port: 3000
+production:
+  mailer_default_url_host: "localhost"
+  mailer_default_url_protocol: "https"
+staging:
+  mailer_default_url_host: "localhost"
+  mailer_default_url_protocol: "https"

@@ -8,7 +8,7 @@ RSpec.describe "Pages", type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the home template" do
+      it "renders the home page" do
         get "/"
         expect(response).to render_template("home")
       end
@@ -20,7 +20,7 @@ RSpec.describe "Pages", type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the terms template" do
+      it "renders the terms page" do
         get "/terms"
         expect(response).to render_template("terms")
       end
@@ -32,7 +32,7 @@ RSpec.describe "Pages", type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the privacy template" do
+      it "renders the privacy page" do
         get "/privacy"
         expect(response).to render_template("privacy")
       end
@@ -48,7 +48,7 @@ RSpec.describe "Pages", type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the customer dashboard template" do
+      it "renders the customer dashboard page" do
         get "/"
         expect(response).to render_template("customer/dashboard/index")
       end
@@ -60,7 +60,7 @@ RSpec.describe "Pages", type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the terms template" do
+      it "renders the terms page" do
         get "/terms"
         expect(response).to render_template("terms")
       end
@@ -72,7 +72,7 @@ RSpec.describe "Pages", type: :request do
         expect(response).to have_http_status(:success)
       end
 
-      it "renders the privacy template" do
+      it "renders the privacy page" do
         get "/privacy"
         expect(response).to render_template("privacy")
       end
