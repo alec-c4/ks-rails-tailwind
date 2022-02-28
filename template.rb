@@ -173,8 +173,6 @@ def apply_app_changes
   end
 
   gsub_file "config/environments/production.rb", /STDOUT/, "$stdout"
-  gsub_file "config/puma.rb", /fetch("RAILS_MAX_THREADS") { 5 }/, 'fetch("RAILS_MAX_THREADS", 5)'
-  gsub_file "config/puma.rb", /fetch("PORT") { 3000 }/, 'fetch("PORT", 3000)'
 
   run "cp config/environments/production.rb config/environments/staging.rb"
 
@@ -247,6 +245,7 @@ def apply_app_changes
   directory "app/controllers", force: true
   directory "app/components", force: true
   directory "app/helpers", force: true
+  directory "app/interactions", force: true
   directory "app/jobs", force: true
   directory "app/mailers", force: true
   directory "app/models", force: true
@@ -255,6 +254,7 @@ def apply_app_changes
   directory "app/assets/stylesheets", force: true
   copy_file "config/routes.rb", force: true
   copy_file "config/puma.rb", force: true
+  copy_file "config/initializers/active_interaction.rb", force: true
 
   # setup specs
   generate "rspec:install"

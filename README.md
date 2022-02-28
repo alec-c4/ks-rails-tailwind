@@ -91,7 +91,6 @@ bin/rails db:encryption:init
 - [rack-attack](https://github.com/rack/rack-attack) to prevent bruteforce and DDoS attacks 
 - [authrail](https://github.com/ankane/authtrail) to track login attempts
 - [lefthook](https://github.com/evilmartians/lefthook) with pre-commit run of rspec, brakeman, standardjs, standardrb and erblint
-- [logstop](https://github.com/ankane/logstop) to avoid sensitive information and noise in the application logs
 - [semantic_logger](https://github.com/reidmorrison/semantic_logger) as a highly configurable logging system
 - [simplecov](https://github.com/simplecov-ruby/simplecov) for test coverage research
 - [mailkick](https://github.com/ankane/mailkick)

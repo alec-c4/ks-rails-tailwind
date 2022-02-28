@@ -84,10 +84,10 @@ gem "image_processing"<%= gemfile_requirement("image_processing") %>
 gem "appsignal"
 
 ### Tools
+gem "active_interaction", "~> 4.1"
 gem "avatarly"
 gem "bootsnap", require: false
 gem "lefthook"
-gem "logstop"
 gem "rails_semantic_logger"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "pagy"
