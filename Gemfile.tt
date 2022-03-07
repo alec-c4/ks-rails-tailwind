@@ -13,6 +13,8 @@ gem "pg_search"
 gem "activerecord-postgres_enum"
 gem "redis", "~> 4.0"
 gem "discard"
+gem "hypershield"
+gem "strong_migrations"
 
 ### Frontend
 gem "active_link_to"

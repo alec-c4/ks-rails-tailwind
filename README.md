@@ -114,5 +114,3 @@ bin/rails db:encryption:init
 - add A11y
 - add deployments tools
 - add documentation (howto's, best practices, curated list of libraries)
-
-- add specs with [n_plus_one_control](https://github.com/palkan/n_plus_one_control)

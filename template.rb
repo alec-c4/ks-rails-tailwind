@@ -72,13 +72,7 @@ def apply_app_changes
 
   rails_command "sitemap:install"
 
-  generate "annotate:install"
-
   generate "simple_form:install"
-
-  generate "strong_migrations:install"
-
-  generate "hypershield:install"
 
   copy_file "config/initializers/pagy.rb", force: true
 
@@ -261,8 +255,10 @@ def apply_app_changes
   directory "spec", force: true
   copy_file ".rspec", force: true
 
-  # setup hypershield gem
+  # setup db related gems
   generate "hypershield:install"
+  generate "annotate:install"
+  generate "strong_migrations:install"
 
   copy_file "config/initializers/devise.rb", force: true
 
@@ -282,7 +278,7 @@ def show_post_install_message
   App successfully created!\n
 
   Next steps:
-  1 - add creadentials as described in README.md
+  1 - add credentials as described in README.md
   2 - configure database connections
   3 - configure application options in config/settings.yml
   4 - run following command \n
