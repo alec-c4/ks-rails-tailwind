@@ -7,8 +7,8 @@ if User.count < 2000
 
   USERS_TO_CREATE.times do |i|
     user = User.create!(
-      first_name: FFaker::NameRU.first_name,
-      last_name: FFaker::NameRU.last_name,
+      first_name: FFaker::Name.first_name,
+      last_name: FFaker::Name.last_name,
       email: FFaker::Internet.safe_email,
       password: FFaker::Internet.safe_email,
       time_zone: Time.zone.name
