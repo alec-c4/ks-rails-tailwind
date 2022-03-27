@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="<%= I18n.locale.to_s %>">
   <head>
+    <base href="<%= Rails.configuration.settings.base_url %>">
     <title>APP_NAME</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="<%= I18n.locale.to_s %>">
   <head>
+    <base href="<%= Rails.configuration.settings.base_url %>">
     <%= display_meta_tags site: "APP_NAME", og: {
       title: :title,
       site_name: :site,
