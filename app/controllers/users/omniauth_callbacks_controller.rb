@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  include Utmable
+
   before_action :set_identity
   before_action :set_user
 
@@ -43,6 +45,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         u.name = auth.info.name
         u.password = Devise.friendly_token[0, 20]
         u.time_zone = browser_time_zone&.name || Time.zone.name
+
+        utm_resource u
+        utm_clear_cookies
+        
         u.skip_confirmation!
       end
     end

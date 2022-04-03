@@ -20,7 +20,7 @@
   </div>
 
   <div class="grow">
-    <h3>User info</h3>
+    <h3 class="mt-3">User info</h3>
     <table>
       <tr>
         <td>Confirmed at</td>
@@ -61,6 +61,34 @@
       <tr>
         <td>Locked at</td>
         <td><%= @user.locked_at %></td>
+      </tr>
+    </table>
+
+    <h3 class="mt-3">Acquisition info</h3>
+    <table>
+      <tr>
+        <td>UTM Source</td>
+        <td><%= @user.utm_source %></td>
+      </tr>
+      <tr>
+        <td>UTM Medium</td>
+        <td><%= @user.utm_medium %></td>
+      </tr>
+      <tr>
+        <td>UTM Campaign</td>
+        <td><%= @user.utm_campaign %></td>
+      </tr>
+      <tr>
+        <td>UTM Term</td>
+        <td><%= @user.utm_term %></td>
+      </tr>
+      <tr>
+        <td>UTM Content</td>
+        <td><%= @user.utm_content %></td>
+      </tr>
+      <tr>
+        <td>Gclid</td>
+        <td><%= @user.gclid %></td>
       </tr>
     </table>
 

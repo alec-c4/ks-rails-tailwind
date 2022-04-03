@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
 
   before_action :set_locale
+  before_action :capture_utm
   before_action :configure_permitted_parameters, if: :devise_controller?
   around_action :configure_time_zone, if: :current_user
 
@@ -53,6 +54,14 @@ class ApplicationController < ActionController::Base
     Time.use_zone(current_user.time_zone, &block) if signed_in? && current_user.time_zone.present?
   end
 
+  ### UTM
+
+  def capture_utm
+    [:utm_source, :utm_campaign, :utm_medium, :utm_term, :utm_content, :gclid].each do |utm|
+      cookies[utm] = {value: params[utm], max_age: "2592000"} if params[utm].present?
+    end
+  end
+    
   ### i18n
 
   def set_locale

@@ -39,6 +39,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.text :ban_reason, null: false, default: ""
       t.references :banned_by, foreign_key: {to_table: :users}, type: :uuid
 
+      ## UTM
+      t.string :utm_source
+      t.string :utm_medium
+      t.string :utm_campaign
+      t.string :utm_term
+      t.string :utm_content
+      t.string :gclid
+      
       ## Profile
       t.string :first_name
       t.string :last_name
