@@ -35,8 +35,9 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, ->(u) { u.is_admin? } do
-    mount GoodJob::Engine => "good_job"
-    mount Blazer::Engine, at: "/blazer"
+    mount GoodJob::Engine, at: "good_job"
+    mount Blazer::Engine, at: "blazer"
+    mount RailsPerformance::Engine, at: "rails_performance"
   end
 
   ### All visitors

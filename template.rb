@@ -265,6 +265,8 @@ def apply_app_changes
 
   copy_file "config/initializers/devise.rb", force: true
 
+  generate "rails_performance:install"
+
   copy_file "public/robots.txt", force: true
 
   # run linters

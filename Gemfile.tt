@@ -84,6 +84,7 @@ gem "image_processing"<%= gemfile_requirement("image_processing") %>
 
 ### Monitoring
 gem "appsignal"
+gem "rails_performance"
 
 ### Tools
 gem "active_interaction", "~> 4.1"
