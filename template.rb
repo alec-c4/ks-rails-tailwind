@@ -264,8 +264,8 @@ def apply_app_changes
   generate "strong_migrations:install"
 
   copy_file "config/initializers/devise.rb", force: true
-
-  generate "rails_performance:install"
+  
+  copy_file "config/initializers/rails_performance.rb", force: true
 
   copy_file "public/robots.txt", force: true
 
