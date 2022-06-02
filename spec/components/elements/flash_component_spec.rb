@@ -7,8 +7,8 @@ RSpec.describe Elements::FlashComponent, type: :component do
       render_inline described_class.new
     end
 
-    expect(rendered_component).to have_text "Notification message!"
-    expect(rendered_component).to have_selector "label"
-    expect(rendered_component).not_to have_selector "img"
+    expect(rendered_content).to have_text "Notification message!"
+    expect(rendered_content).to have_selector "label"
+    expect(rendered_content).not_to have_selector "img"
   end
 end

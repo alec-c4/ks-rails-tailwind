@@ -8,6 +8,7 @@ ru:
     access_denied: Доступ запрещён!
     available_locales_label: Доступные языки
   navigation:
+    about_page: О нас
     account: Аккаунт
     privacy_page: Политика конфиденциальности
     profile: Профиль
@@ -20,6 +21,8 @@ ru:
       title: Политика конфиденциальности
     terms:
       title: Правила
+    about:
+      title: О нас
   users:
     profile:
       avatar: Фото

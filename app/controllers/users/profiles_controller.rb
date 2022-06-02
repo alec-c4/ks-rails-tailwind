@@ -1,6 +1,7 @@
 class Users::ProfilesController < Users::BaseController
   def edit
     authorize %i[users profile], :edit?
+    ahoy.track "Edit profile"
   end
 
   def update
@@ -9,9 +10,11 @@ class Users::ProfilesController < Users::BaseController
 
     respond_to do |format|
       if user.update(profile_params)
+        ahoy.track "Update user profile"
         format.html { redirect_to edit_profile_path, notice: t(".action_successful") }
         format.json { render :show, status: :ok, location: user }
       else
+        ahoy.track "Update user profile failed"
         format.html {
           flash.now[:alert] = t(".action_failed")
           render :edit, status: :unprocessable_entity

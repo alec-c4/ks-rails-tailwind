@@ -37,6 +37,18 @@ RSpec.describe "Pages", type: :request do
         expect(response).to render_template("privacy")
       end
     end
+
+    describe "GET /about" do
+      it "returns http success" do
+        get "/about"
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the about page" do
+        get "/about"
+        expect(response).to render_template("about")
+      end    
+    end
   end
 
   context "when user is logged in" do
@@ -77,5 +89,17 @@ RSpec.describe "Pages", type: :request do
         expect(response).to render_template("privacy")
       end
     end
+
+    describe "GET /about" do
+      it "returns http success" do
+        get "/about"
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the about page" do
+        get "/about"
+        expect(response).to render_template("about")
+      end    
+    end    
   end
 end

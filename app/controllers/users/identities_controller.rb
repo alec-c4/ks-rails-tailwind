@@ -3,6 +3,7 @@ class Users::IdentitiesController < Users::BaseController
 
   def destroy
     authorize %i[users identities], :destroy?
+    ahoy.track "Destroy identity", identity: @identity.provider
     @identity.destroy!
     redirect_back fallback_location: root_url
   end

@@ -5,6 +5,7 @@ require "capybara/rspec"
 require "capybara-screenshot/rspec"
 require "simplecov"
 require "pundit/rspec"
+require "pundit/matchers"
 require "view_component/test_helpers"
 
 RSpec.configure do |config|

@@ -8,6 +8,7 @@ en:
     access_denied: Access denied!
     available_locales_label: Available locales
   navigation:
+    about_page: About us
     account: Account
     privacy_page: Privacy policy
     profile: Profile
@@ -20,6 +21,8 @@ en:
       title: Privacy policy
     terms:
       title: Terms of service
+    about:
+      title: About us     
   users:
     profile:
       avatar: Photo

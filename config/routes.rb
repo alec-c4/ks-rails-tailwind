@@ -38,11 +38,13 @@ Rails.application.routes.draw do
     mount GoodJob::Engine, at: "good_job"
     mount Blazer::Engine, at: "blazer"
     mount RailsPerformance::Engine, at: "rails_performance"
+    mount PgHero::Engine, at: "pghero"
   end
 
   ### All visitors
   get "/terms", to: "pages#terms"
   get "/privacy", to: "pages#privacy"
+  get "/about", to: "pages#about"
 
   root to: "pages#home"
 

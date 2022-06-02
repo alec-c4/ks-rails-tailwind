@@ -72,7 +72,7 @@ bin/rails db:encryption:init
 - [strong_migrations](https://github.com/ankane/strong_migrations)
 - authentication with [devise](https://github.com/heartcombo/devise) and [devise-pwned_password](https://github.com/michaelbanfield/devise-pwned_password) + google auth
 - [pretender](https://github.com/ankane/pretender)
-- authorization with [pundit](https://github.com/varvet/pundit)
+- authorization with [pundit](https://github.com/varvet/pundit) + [pundit-matchers](https://github.com/chrisalley/pundit-matchers) for tests
 - role management with [rolify](https://github.com/RolifyCommunity/rolify)
 - ability to ban user account
 - pre-configured generators
