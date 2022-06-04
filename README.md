@@ -26,7 +26,7 @@ rails new APP_NAME --no-skip-hotwire -T -c tailwind -j esbuild -d postgresql -m 
 
 4. Configure Appsignal with `bundle exec appsignal install APPSIGNAL_KEY`
 
-5. Setup hypershield gem for [PostgreSQL](https://github.com/ankane/hypershield#postgres)
+5. Setup hypershield gem for [PostgreSQL](https://github.com/ankane/hypershield#postgres) and create user for [blazer gem](https://github.com/ankane/blazer#permissions)
 
 6. Configure sitemap generator in `config/sitemap.rb`
 
