@@ -31,8 +31,10 @@ run:
 	@bin/dev
 lint:
 	@# Help: Run linter
-	@standardrb --fix
-	@standard --fix
+	@bundle exec standardrb --fix
+	@yarn run standard --fix
+	@bundle exec erblint --lint-all -a
+	@bundle exec i18n-tasks normalize
 migrate:
 	@# Help: Migrate database
 	@rails db:migrate
