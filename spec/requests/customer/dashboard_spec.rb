@@ -4,7 +4,7 @@ RSpec.describe "Customer::Dashboard", type: :request do
   context "when user isn't logged in" do
     describe "GET /" do
       it "render landing" do
-        get "/"
+        get root_path
         expect(response).to have_http_status(:success)
         expect(response).to render_template("pages/home")
       end
@@ -16,7 +16,7 @@ RSpec.describe "Customer::Dashboard", type: :request do
 
     describe "GET /" do
       it "render dashboard" do
-        get "/"
+        get root_path
         expect(response).to have_http_status(:success)
         expect(response).to render_template("customer/dashboard/index")
       end

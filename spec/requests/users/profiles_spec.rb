@@ -20,7 +20,7 @@ RSpec.describe "Users::Profiles", type: :request do
   context "when user isn't logged in" do
     describe "GET /edit" do
       it "redirects to sign_in page" do
-        get "/users/profiles/edit"
+        get edit_profile_path
         expect(response).to have_http_status(302)
         expect(response).to redirect_to(new_user_session_path)
       end
@@ -28,7 +28,9 @@ RSpec.describe "Users::Profiles", type: :request do
 
     describe "PUT /edit" do
       it "redirects to sign_in page" do
-        expect { put "/users/profiles/edit" }.to raise_error(ActionController::RoutingError)
+        put profile_path
+        expect(response).to have_http_status(302)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
@@ -38,7 +40,7 @@ RSpec.describe "Users::Profiles", type: :request do
 
     describe "GET /edit" do
       it "returns http success" do
-        get "/users/profiles/edit"
+        get edit_profile_path
         expect(response).to have_http_status(:success)
         expect(response).to render_template("users/profiles/edit")
       end
@@ -46,7 +48,7 @@ RSpec.describe "Users::Profiles", type: :request do
 
     describe "PUT /edit" do
       it "returns http success (valid attributes)" do
-        put "/users/profiles", params: {user: valid_attributes}
+        put profile_path, params: {user: valid_attributes}
         expect(response).to have_http_status(302)
         expect(response).to redirect_to(edit_profile_path)
 
@@ -56,7 +58,7 @@ RSpec.describe "Users::Profiles", type: :request do
       end
 
       it "returns http success (invalid attributes)" do
-        put "/users/profiles", params: {user: invalid_attributes}
+        put profile_path, params: {user: invalid_attributes}
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response).to render_template("users/profiles/edit")
 

@@ -6,7 +6,7 @@ RSpec.describe "Admin::LoginActivities", type: :request do
   context "when user isn't logged in" do
     describe "GET /admin/users/:user_id/login_activities" do
       it "redirects to the root_path with http status 302" do
-        get "/admin/users/#{user.id}/login_activities"
+        get admin_user_login_activities_path(user)
         expect(response).to have_http_status(302)
         expect(response).to redirect_to(root_path)
       end
@@ -14,7 +14,7 @@ RSpec.describe "Admin::LoginActivities", type: :request do
 
     describe "GET /admin/login_activities/:id" do
       it "redirects to the root_path with http status 302" do
-        get "/admin/users/#{user.id}/login_activities"
+        get admin_user_login_activities_path(user)
         expect(response).to have_http_status(302)
         expect(response).to redirect_to(root_path)
       end
@@ -26,7 +26,7 @@ RSpec.describe "Admin::LoginActivities", type: :request do
 
     describe "GET /admin/users/:user_id/login_activities" do
       it "redirects to the root_path with http status 302" do
-        get "/admin/users/#{user.id}/login_activities"
+        get admin_user_login_activities_path(user)
         expect(response).to have_http_status(302)
         expect(response).to redirect_to(root_path)
       end
