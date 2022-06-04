@@ -1,13 +1,17 @@
 require "rails_helper"
 
 RSpec.describe Users::IdentitiesPolicy, type: :policy do
-  let(:user) { User.new }
+  subject { described_class.new(user, nil) }
 
-  subject { described_class }
+  context "being a registered user" do
+    let(:user) { create(:user) }
 
-  permissions :destroy? do
-    it "allows users to remove connected identity" do
-      expect(subject).to permit(user, nil)
-    end
+    it { is_expected.to permit_action(:destroy) }
+  end
+
+  context "being a admin user" do
+    let(:user) { create(:admin) }
+
+    it { is_expected.to permit_action(:destroy) }
   end
 end

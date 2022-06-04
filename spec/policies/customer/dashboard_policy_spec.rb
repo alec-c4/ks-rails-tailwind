@@ -1,12 +1,17 @@
 require "rails_helper"
 
 RSpec.describe Customer::DashboardPolicy, type: :policy do
-  let(:user) { User.new }
-  subject { described_class }
+  subject { described_class.new(user, nil) }
 
-  permissions :index? do
-    it "allows users to access dashboard" do
-      expect(subject).to permit(user, nil)
-    end
+  context "being a registered user" do
+    let(:user) { create(:user) }
+
+    it { is_expected.to permit_action :index }
+  end
+
+  context "being a admin user" do
+    let(:user) { create(:admin) }
+
+    it { is_expected.to permit_action :index }
   end
 end
