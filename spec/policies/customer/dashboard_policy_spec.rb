@@ -6,12 +6,12 @@ RSpec.describe Customer::DashboardPolicy, type: :policy do
   context "being a registered user" do
     let(:user) { create(:user) }
 
-    it { is_expected.to permit_action :index }
+    it { should permit_action :index }
   end
 
   context "being a admin user" do
     let(:user) { create(:admin) }
 
-    it { is_expected.to permit_action :index }
+    it { should permit_action :index }
   end
 end

@@ -25,11 +25,12 @@ gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "jbuilder"<%= gemfile_requirement("jbuilder") %>
-gem "view_component"
 
 ### View helpers
 gem "simple_form"
 gem "local_time"
+gem "gretel"
+gem "view_component"
 
 ### Authentication and Authorization
 gem "devise"

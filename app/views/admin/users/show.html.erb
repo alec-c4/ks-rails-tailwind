@@ -1,3 +1,5 @@
+<% breadcrumb :admin_user, @user %>
+
 <div class="flex flex-auto gap-3 justify-start">
   <div>
     <%= render (Elements::AvatarComponent.new(user: @user, preset: :medium)) %>

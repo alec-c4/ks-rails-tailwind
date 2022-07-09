@@ -255,6 +255,7 @@ def apply_app_changes
   copy_file "config/routes.rb", force: true
   copy_file "config/puma.rb", force: true
   copy_file "config/initializers/active_interaction.rb", force: true
+  directory "config/breadcrumbs", force: true
 
   generate "cypress_on_rails:install"
   directory "cypress/app_commands/scenarios", force: true

@@ -1,6 +1,9 @@
 <nav>
   <ul class="flex justify-start gap-4">
     <li>
+      <%= active_link_to "Dashboard", admin_dashboard_path %>
+    </li>  
+    <li>
       <%= active_link_to "Users management", admin_users_path %>
     </li>
   </ul>

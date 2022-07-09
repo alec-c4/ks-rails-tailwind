@@ -17,6 +17,10 @@
       <%= render "layouts/admin_navigation" %>
     </header>
     <main>
+      <div class="my-3">
+        <%= breadcrumbs style: :inline, display_single_fragment: true %>
+      </div>
+
       <%= render Elements::FlashComponent.new %>
       <%= yield %>
     </main>

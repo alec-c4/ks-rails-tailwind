@@ -6,12 +6,12 @@ RSpec.describe Users::IdentitiesPolicy, type: :policy do
   context "being a registered user" do
     let(:user) { create(:user) }
 
-    it { is_expected.to permit_action(:destroy) }
+    it { should permit_action(:destroy) }
   end
 
   context "being a admin user" do
     let(:user) { create(:admin) }
 
-    it { is_expected.to permit_action(:destroy) }
+    it { should permit_action(:destroy) }
   end
 end
