@@ -1,0 +1,2 @@
+web: CYPRESS=1 bin/rails server -p 5017
+cypress: yarn cypress open

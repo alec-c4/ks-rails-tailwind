@@ -11,6 +11,9 @@ test:
 	@# Help: Exec rspec tests
 	@rails db:migrate RAILS_ENV=test
 	@bundle exec rspec
+cprs:
+	@# Help: Run Cypress tests	(requires Cypress)
+	@foreman start -f Procfile.cypress		
 install:
 	@# Help: Install dependencies
 	@bundle install foreman

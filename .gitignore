@@ -14,6 +14,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/yarn-error.log
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -29,12 +30,18 @@
 
 /public/assets
 
-# Ignore master key for decrypting credentials and more.
+# Ignore keys for decrypting credentials and more.
 /config/master.key
+/config/credentials/development.key
+/config/credentials/production.key
+/config/credentials/staging.key
+/config/credentials/test.key
 
+# Assets
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+# Node modules
 /node_modules
 
 # IDE specific files
@@ -43,5 +50,9 @@
 # Simplecov
 /coverage
 
-/config/credentials/development.key
-/config/credentials/test.key
+# Cypress
+/cypress/videos
+/cypress/screenshots
+
+# Docs
+/docs/erd.pdf

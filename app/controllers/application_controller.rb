@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
   ### UTM
 
   def capture_utm
-    [:utm_source, :utm_campaign, :utm_medium, :utm_term, :utm_content, :gclid].each do |utm|
+    [:utm_source, :utm_campaign, :utm_medium, :utm_term, :utm_content, :gclid, :ysclid].each do |utm|
       cookies[utm] = {value: params[utm], max_age: "2592000"} if params[utm].present?
     end
   end

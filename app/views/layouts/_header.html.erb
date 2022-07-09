@@ -18,14 +18,14 @@
       <% if current_user != true_user %>
         <li><%= link_to "Back to admin", stop_impersonating_admin_users_path, data: { turbo_method: :post } %></li>
       <% else %>
-        <li><%= link_to t('navigation.sign_out'), destroy_user_session_path, data: { turbo_method: :delete } %></li>
+        <li><%= link_to t('navigation.sign_out'), destroy_user_session_path, id: "sign_out_link", data: { turbo_method: :delete } %></li>
       <% end %>
     <% else %>
       <li>
-        <%= link_to t('navigation.sign_up'), new_user_registration_path %>
+        <%= link_to t('navigation.sign_up'), new_user_registration_path, id: "sign_up_link" %>
       </li>
       <li>
-        <%= link_to t('navigation.sign_in'), new_user_session_path %>
+        <%= link_to t('navigation.sign_in'), new_user_session_path, id: "sign_in_link" %>
       </li>
     <% end %>
     <% if Rails.env.development? %>

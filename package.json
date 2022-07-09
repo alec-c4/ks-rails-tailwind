@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "lint": "standard --fix",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+  },
+  "standard": {
+    "ignore": [
+      "cypress/**"
+    ]
+  }
+}

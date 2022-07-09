@@ -46,6 +46,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :utm_term
       t.string :utm_content
       t.string :gclid
+      t.string :ysclid
       
       ## Profile
       t.string :first_name

@@ -61,6 +61,24 @@ bin/rails db:encryption:init
 
 11. Update error pages in `app/views/errors/*` with your content 
 
+12. Update `config/database.yml`  -  just change configuration line for development from
+
+```yml
+development:
+  <<: *default
+  database: APP_NAME_development
+```
+
+to
+
+```yml
+development:
+  <<: *default
+  database: <%= ENV['CYPRESS'] ? 'APP_NAME_test' : 'APP_NAME_development' %>
+```
+
+Example configuration is available in `config/database.yml.example`
+
 ## What's inside
 
 - ruby on rails application template 
@@ -78,7 +96,7 @@ bin/rails db:encryption:init
 - pre-configured generators
 - SEO tools - [meta-tags](https://github.com/kpumuk/meta-tags), [sitemap_generator](http://github.com/kjvarga/sitemap_generator) and [friendly_id](https://github.com/norman/friendly_id)
 - I18n tools - [rails-i18n](http://github.com/svenfuchs/rails-i18n) and [i18n-tasks](https://github.com/glebm/i18n-tasks)
-- rspec for testing
+- [rspec](https://rspec.info) and [cypress](https://cypress.io) for testing
 - [better_html](https://github.com/Shopify/better-html) and [erb-lint](https://github.com/Shopify/erb-lint) for erb linting
 - [standard.js](https://standardjs.com) and [standard.rb](https://github.com/testdouble/standard) for code style validations
 - [bullet](https://github.com/flyerhzm/bullet) to prevent N+1 problems
