@@ -1,15 +1,15 @@
 FactoryBot.define do
-  factory :user, aliases: %i[author commenter] do
+  factory :user, aliases: %i[author commenter owner recipient] do
     first_name { "Steve" }
     last_name { "Jobs" }
-    email { "user@example.com" }
-    password { "user@example.com" }
+    email { FFaker::Internet.email }
+    password { FFaker::Internet.password }
     confirmed_at { Time.zone.now }
     time_zone { Time.zone.name }
 
     factory :admin do
-      email { "admin@example.com" }
-      password { "admin@example.com" }
+      email { FFaker::Internet.email }
+      password { FFaker::Internet.password }
       after(:create) { |user| user.add_role(:admin) }
     end
   end

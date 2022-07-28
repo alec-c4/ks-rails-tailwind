@@ -25,3 +25,16 @@
     </li>    
   </ul>
 </nav>
+
+<% if Rails.env.development? %>
+  <nav>
+    <ul class="flex justify-start gap-4">
+      <li>
+        <%= link_to "Lookbook", lookbook_path %>
+      </li>
+      <li>
+        <%= link_to "Letter opener", letter_opener_web_path %>
+      </li>
+    </ul>
+  </nav>
+<% end %>

@@ -31,6 +31,7 @@ gem "simple_form"
 gem "local_time"
 gem "gretel"
 gem "view_component"
+gem "lookbook"
 
 ### Authentication and Authorization
 gem "devise"

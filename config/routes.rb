@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   ### Developer tools
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    mount Lookbook::Engine, at: "/lookbook"
   end
 end
