@@ -14,7 +14,7 @@ gem "activerecord-postgres_enum"
 gem "redis", "~> 4.0"
 gem "discard"
 gem "hypershield"
-gem "strong_migrations"
+gem "online_migrations"
 
 ### Frontend
 gem "active_link_to"

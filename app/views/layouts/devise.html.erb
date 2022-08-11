@@ -2,7 +2,11 @@
 <html lang="<%= I18n.locale.to_s %>">
   <head>
     <base href="<%= Rails.configuration.settings.base_url %>">
-    <title>APP_NAME</title>
+    <%= display_meta_tags site: "APP_NAME", og: {
+      title: :title,
+      site_name: :site,
+    } %>
+    
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

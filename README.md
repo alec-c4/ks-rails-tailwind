@@ -87,7 +87,7 @@ Example configuration is available in `config/database.yml.example`
 - postgresql database connector
 - timezone detection with [jstz](https://github.com/iansinnott/jstz)
 - [Good Job](https://github.com/bensheldon/good_job) for background jobs
-- [strong_migrations](https://github.com/ankane/strong_migrations)
+- [online_migrations](https://github.com/fatkodima/online_migrations)
 - authentication with [devise](https://github.com/heartcombo/devise) and [devise-pwned_password](https://github.com/michaelbanfield/devise-pwned_password) + google auth
 - [pretender](https://github.com/ankane/pretender)
 - authorization with [pundit](https://github.com/varvet/pundit) + [pundit-matchers](https://github.com/chrisalley/pundit-matchers) for tests

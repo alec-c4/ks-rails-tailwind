@@ -20,7 +20,7 @@ pre-commit:
     standard:
       tags: standard frontend
       glob: "*.{js,ts}"
-      run: standard
+      run: yarn run standard
     brakeman:
       tags: brakeman backend
       run: bundle exec brakeman --no-pager
